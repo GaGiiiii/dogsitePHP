@@ -83,7 +83,7 @@
       <div class="row">
         <div class="col-md-7 col-sm-7 col-xs-10" id="form-col">
           <div id="error-success-message">
-            <?php include("../server/errors.php"); ?>
+            <?php //include("../server/errors.php"); ?>
           </div>
 
 					<!-- FORM START -->
@@ -96,13 +96,13 @@
 	            <div class="usernameRL col-md-7">
                 <div class="error-input">
                   <?php 
-                    if($missingName){ ?>
+                    if(isset($missingName) && $missingName){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Name field is required.");
                     }
                   ?>
                 </div>
-	              <input class="input-contact" type="text" name="breedname" id="username" placeholder="Breed Name" value="<?php echo $_POST['breedname']; ?>">
+	              <input class="input-contact" type="text" name="breedname" id="username" placeholder="Breed Name" value="<?php echo $_POST['breedname'] ?? ""; ?>">
 	            </div>
 	          </div>
 
@@ -112,13 +112,13 @@
 	            <div class="emailRL col-md-7">
                 <div class="error-input">
                   <?php 
-                    if($missingImage){ ?>
+                    if(isset($missingImage) && $missingImage){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Image field is required.");
                     }
                   ?>
                 </div>
-	              <input class="input-contact" type="text" name="breedimage" id="email" placeholder="Image URL" value="<?php echo $_POST['breedimage']; ?>">
+	              <input class="input-contact" type="text" name="breedimage" id="email" placeholder="Image URL" value="<?php echo $_POST['breedimage'] ?? ""; ?>">
 	            </div>
 	          </div>
 
@@ -128,13 +128,13 @@
               <div class="text text-breeddescription col-md-7">
                 <div class="error-input">
                   <?php 
-                    if($missingDescription){ ?>
+                    if(isset($missingDescription) && $missingDescription){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Description field is required.");
                     }
                   ?>
                 </div>
-                <textarea class="textarea-contact" name="breeddescription" placeholder="Description"><?php echo $_POST['breeddescription']; ?></textarea>
+                <textarea class="textarea-contact" name="breeddescription" placeholder="Description"><?php echo $_POST['breeddescription'] ?? ""; ?></textarea>
               </div>   
             </div>
 
