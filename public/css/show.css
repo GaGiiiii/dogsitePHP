@@ -176,7 +176,7 @@ input.like-input, input.like-input-loggedOut, input.like-comment-input, input.li
 }
 
 input.dislike-input, input.dislike-input-loggedOut, input.dislike-comment-input, input.dislike-comment-input-loggedOut{
-  background: url('http://www.sma-syndicat.org/wp-content/uploads/intense-cache/icons/plugin/font-awesome/thumbs-down.svg') no-repeat;
+  background: url('https://www.sma-syndicat.org/wp-content/uploads/intense-cache/icons/plugin/font-awesome/thumbs-down.svg') no-repeat;
   height: 25px;
   width: 25px;
   border: none;

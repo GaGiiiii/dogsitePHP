@@ -49,7 +49,7 @@
                 <div class="error-default">
                   <?php
                     // include("../server/errors.php"); 
-                    if($wrongCombination){ ?>
+                    if(isset($wrongCombination) && $wrongCombination){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php  writeMessage("Wrong username and password combination.");
                     }
@@ -64,13 +64,13 @@
 	            <div class="usernameRL message-input-col col-md-7">
                 <div class="error-input">
                   <?php 
-                    if($missingUsername){ ?>
+                    if(isset($missingUsername) && $missingUsername){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Username field is required.");
                     }
                   ?>
 	              </div>
-                <input class="input-contact" type="text" name="username" id="username" placeholder="Username" value="<?php echo $_POST['username']; ?>">
+                <input class="input-contact" type="text" name="username" id="username" placeholder="Username" value="<?php echo $_POST['username'] ?? ""; ?>">
 	            </div>
 	          </div>
 
@@ -80,13 +80,13 @@
 	            <div class="passwordRL message-input-col col-md-7">
                 <div class="error-input">
                   <?php 
-                    if($missingPassword){ ?>
+                    if(isset($missingPassword) && $missingPassword){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Password field is required.");
                     }
                   ?>
 	              </div>
-                <input class="input-contact" type="password" name="password" id="password" placeholder="Password" value="<?php echo $_POST['password']; ?>">
+                <input class="input-contact" type="password" name="password" id="password" placeholder="Password" value="">
 	            </div>
 	          </div>  
 

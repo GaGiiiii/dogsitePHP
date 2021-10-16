@@ -2,7 +2,10 @@
 
 	include("db.php");
 
-	session_start();
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+
 
 	$username = "";
 	$email = "";
@@ -175,6 +178,4 @@
 		if($currentUserRole['role'] == "admin"){
 		  $isAdmin = true;
 		}
-	}	
-
-?>
+	}

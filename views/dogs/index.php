@@ -76,7 +76,7 @@
   </div>
 
   <?php 
-    if($_SESSION['successLogin']){
+    if(isset($_SESSION['successLogin'])){
       echo "Successfully loged in :)";
       unset($_SESSION['successLogin']);
     }

@@ -5,7 +5,7 @@
 
 	/* ********************** GET ID FROM COMMENT SCROLL START ************************ */
 
-	$scrollCommentId = $_GET['comment'];
+	$scrollCommentId = $_GET['comment'] ?? -1;
 
   /* ********************** GET ID FROM COMMENT SCROLL END ************************ */
 
@@ -14,7 +14,7 @@
   
   /* ********************** GET ID FROM LOGGED USER AND SHOWING BREED ************************ */
 
-  $idlog = $_SESSION['id'];
+  $idlog = $_SESSION['id'] ?? -1;
   $id = mysqli_real_escape_string($db, $_GET['id']);
   $id = htmlentities($id);
 
@@ -236,7 +236,7 @@
                 <i class="fa fa-bars"></i>
               </button>
               <div class="logo-wrapper">
-                  <a class="navbar-brand" href="/projects/dogsite/">
+                  <a class="navbar-brand" href="/dogsitePHP/">
                       <p>D<em>og Site</em></p>
                   </a>
               </div>  
@@ -377,7 +377,7 @@
                 </ul>
                 <p class="show-p"><?php echo $breed['description']; ?></p>
                 <?php if (($_SESSION['username'] && $_SESSION['id'] == $breed['user_id']) || $isAdmin) { ?>
-                	<a class="btn btn-xs btn-warning show-a" href="/projects/dogsite/views/dogs/edit.php?id=<?php echo $breed['id']; ?>">Edit</a>
+                	<a class="btn btn-xs btn-warning show-a" href="/dogsitePHP/views/dogs/edit.php?id=<?php echo $breed['id']; ?>">Edit</a>
                 
                   <!--Delete breed used for modal button-->
                   <input type="submit" class="btn btn-xs btn-danger" data-target="#deleteBreedModal<?php echo $breed['id']; ?>" data-toggle="modal" value="Delete">
@@ -472,7 +472,7 @@
   <div class="row">
     <div class="col-md-12" id="comment<?php echo $comment['id']; ?>">
       <strong>
-          <?php if ($_SESSION['username'] && $_SESSION['id'] == $comment['user_id']) { ?>
+          <?php if (isset($_SESSION['username']) && isset($_SESSION['id']) && $_SESSION['id'] == $comment['user_id']) { ?>
         <!--If the current user owns the comment, change the color of the user icon-->
         <span style="color: orange;" class="glyphicon glyphicon-user" aria-hidden="true"></span>
           <?php } else { ?>
@@ -507,7 +507,7 @@
         <?php echo time_elapsed_string($comment['created']); ?>
         <br>
 
-        <?php if($_SESSION['id']){ ?>
+        <?php if(isset($_SESSION['id'])){ ?>
 
           <form id="likes-dislikes-comments<?php echo $comment['id']; ?>" method="POST" style="display: inline;">
 
@@ -593,7 +593,7 @@
       
 
       <!--If the visitor is logged in and the owner of the comment, show the edit and delete buttons-->
-      <?php if (($_SESSION['username'] && $_SESSION['id'] == $comment['user_id']) || $isAdmin) { ?>
+      <?php if ((isset($_SESSION['username']) && $_SESSION['username'] && $_SESSION['id'] == $comment['user_id']) || $isAdmin) { ?>
     
       <br> 
       <!--Edit button used for collapsing the edit comment form-->

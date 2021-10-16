@@ -100,7 +100,7 @@
               <div class="message-default-col col-md-12">
                 <div class="<?php if($sentMail) echo 'success-default'; ?>">
                   <?php 
-                    if($sentMail){ ?>
+                    if(isset($sentMail) && $sentMail){ ?>
                       <i class="fa fa-check"></i>
                       <?php writeMessage("Successfully sent message.");
                     }
@@ -116,13 +116,13 @@
               <div class="name col-md-4">
                 <div class="error-input">
                   <?php 
-                    if($missingName){ ?>
+                    if(isset($missingName) && $missingName){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Name field is required.");
                     }
                   ?>
                 </div>
-                <input class="input-contact" type="text" name="name" id="name" placeholder="Name" value='<?php echo $_POST["name"]; ?>'>
+                <input class="input-contact" type="text" name="name" id="name" placeholder="Name" value='<?php echo $_POST["name"] ?? ""; ?>'>
               </div>
 
               <!-- EMAIL -->
@@ -130,17 +130,17 @@
               <div class="email col-md-4">
                 <div class="error-input">
                   <?php 
-                    if($missingEmail){ ?>
+                    if(isset($missingEmail) && $missingEmail){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Email field is required.");
                     }
-                    if($invalidEmail){ ?>
+                    if(isset($invalidEmail) && $invalidEmail){ ?>
                     <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Invalid email format.");
                     }
                   ?>
                 </div>
-                <input class="input-contact" type="email" name="email" id="email" placeholder="Email" value="<?php echo $_POST['email']; ?>">
+                <input class="input-contact" type="email" name="email" id="email" placeholder="Email" value="<?php echo $_POST['email'] ?? ""; ?>">
               </div>
 
               <!-- SUBJECT -->
@@ -148,13 +148,13 @@
               <div class="subject col-md-4">
                 <div class="error-input">
                   <?php 
-                    if($missingSubject){ ?>
+                    if(isset($missingSubject) && $missingSubject){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Subject field is required.");
                     }
                   ?>
                 </div>
-                <input class="input-contact" type="text" name="subject" id="subject" placeholder="Subject" value="<?php echo $_POST['subject']; ?>">
+                <input class="input-contact" type="text" name="subject" id="subject" placeholder="Subject" value="<?php echo $_POST['subject'] ?? ""; ?>">
               </div> 
 
             </div>
@@ -165,13 +165,13 @@
               <div class="text col-md-12">
                 <div class="error-input">
                   <?php 
-                    if($missingMessage){ ?>
+                    if(isset($missingMessage) && $missingMessage){ ?>
                       <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Message field is required.");
                     }
                   ?>
                 </div>
-                <textarea class="textarea-contact" name="message" placeholder="Message"><?php echo $_POST['message']; ?></textarea>
+                <textarea class="textarea-contact" name="message" placeholder="Message"><?php echo $_POST['message'] ?? ""; ?></textarea>
               </div> 
 
             </div>                              
