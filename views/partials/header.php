@@ -46,7 +46,7 @@ $id = $_SESSION['id'] ?? -1;
               <i class="fa fa-bars"></i>
             </button>
             <div class="logo-wrapper">
-              <a class="navbar-brand" href="/dogsitePHP/">
+              <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">
                 <p>D<em>og Site</em></p>
               </a>
             </div>
