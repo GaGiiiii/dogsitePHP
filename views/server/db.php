@@ -14,5 +14,5 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
 if ($_SERVER['SERVER_NAME'] == "localhost") {
   $db = mysqli_connect("localhost", "root", "", "dogsitePHP");
 } else {
-  $db = mysqli_connect(env('dbhost'), env('dbusername'), env('dbpassword'), env('dbname'));
+  $db = mysqli_connect($_ENV['dbhost'], $_ENV['dbusername'], $_ENV['dbpassword'], $_ENV['dbname']);
 }
