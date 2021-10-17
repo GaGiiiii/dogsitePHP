@@ -5,7 +5,7 @@
 if ($_SERVER['SERVER_NAME'] == "localhost") {
   define("ROOT_URL", "https://" . $_SERVER['SERVER_NAME'] . '/dogsitePHP');
 } else {
-  define('ROOT_URL', "http://gagi-com.stackstaging.com/dogsite");
+  define('ROOT_URL', "https://dogsitephp.herokuapp.com");
 }
 
 
