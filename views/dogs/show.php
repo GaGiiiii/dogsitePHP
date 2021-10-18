@@ -439,7 +439,7 @@ date_default_timezone_set("Europe/Belgrade");
                   <div class="form-group">
                     <div class="error-input" id="missing-comment-error">
                       <?php
-                      if ($missingComment) { ?>
+                      if (isset($missingComment) && $missingComment) { ?>
                         <i class="fa fa-times-circle"></i>
                       <?php writeMessage("Comment field is required.");
                       }
